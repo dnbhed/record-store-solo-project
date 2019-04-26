@@ -13,5 +13,5 @@ CREATE TABLE records
   id SERIAL8 primary key,
   title VARCHAR(255) not null,
   stock INT4,
-  artist_id INT8 references artists(id)
+  artist_id INT8 references artists(id) ON DELETE CASCADE
 );
