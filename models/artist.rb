@@ -15,11 +15,16 @@ class Artist
     (
       $1
     )
-      RETURNING id"
+      RETURNING id;"
     values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
 
+  def self.all()
+    sql = "SELECT artists.* FROM artists;"
+    results = SqlRunner.run(sql)
+    return results.map { |artist| Artist.new(artist) }
   end
 
 end
