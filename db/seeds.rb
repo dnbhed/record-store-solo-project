@@ -1,8 +1,12 @@
 require_relative('../models/artist')
 require_relative('../models/record')
+require_relative('../models/desk')
 require('pry-byebug')
 
+Record.delete_all()
 Artist.delete_all()
+
+desk = Desk.new("1")
 
 artist1 = Artist.new({
   'name' => 'Matrix & Futurebound'
@@ -16,6 +20,7 @@ record1 = Record.new({
   'artist_id' => artist1.id
   })
 
+record1.save()
 
 binding.pry()
 nil
