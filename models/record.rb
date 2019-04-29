@@ -67,6 +67,14 @@ class Record
       SqlRunner.run(sql, values)
   end
 
+  def self.find_all_by_artist(artist_id)
+    sql = sql = "SELECT records.* FROM records
+    WHERE artist_id = $1;"
+    values = [artist_id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |record| Record.new(record) }
+  end
+
   def self.find(id)
     sql = "SELECT records.* FROM records
     WHERE id = $1;"

@@ -1,0 +1,8 @@
+/* body {
+  display: grid;
+  grid-template: repeat(12, 1fr) / repeat(12, 1fr);
+  background-color: rgb(85, 85, 85);
+  font-family: Verdana;
+  max-width: 1200px;
+  grid-gap: 10px;
+} */
