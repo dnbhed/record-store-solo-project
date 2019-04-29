@@ -34,3 +34,15 @@ post '/artists/:id' do
   artist.update()
   redirect to "/artists/#{params['id']}"
 end
+
+
+
+post '/artists/:id/delete' do
+  artist = Artist.find(params['id'])
+  if artist.delete() == false
+    redirect to '/artists/:id/edit/error'
+  else
+    artist.delete()
+    redirect to '/artists'
+  end
+end

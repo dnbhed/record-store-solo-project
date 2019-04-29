@@ -2,5 +2,6 @@
 
 <main id="artist-search">
   Name: <%= @artist.name  %>
-      
+  <p><a href="/artists/<%= @artist.id %>/edit">Edit</a></p>
+  <form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
 </main>

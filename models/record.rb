@@ -37,6 +37,36 @@ class Record
     return Artist.new(result.first).name
   end
 
+  def update()
+    sql = "UPDATE records
+    SET
+    (title, stock, artist_id)
+    =
+    ($1, $2, $3)
+    WHERE id = $4;"
+    values = [@title, @stock, @artist_id, @id]
+    SqlRunner.run(sql, values)
+
+  end
+
+  def check_stock_level()
+    result = self.stock
+    if result > 10
+      return "High"
+    elsif result > 4
+      return "Medium"
+    else
+      return "Low"
+    end
+  end
+
+  def delete()
+      sql = "DELETE FROM records
+      WHERE id = $1;"
+      values = [@id]
+      SqlRunner.run(sql, values)
+  end
+
   def self.find(id)
     sql = "SELECT records.* FROM records
     WHERE id = $1;"

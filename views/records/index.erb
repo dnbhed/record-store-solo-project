@@ -1,4 +1,4 @@
-<h1>Records</h1>
+<h1>Record Inventory</h1>
 
 <table>
   <tr>
@@ -10,11 +10,16 @@
 
   <% @records.each do |record|   %>
   <tr>
-    <th><%= record.title  %></th>
-    <th><%= record.artist  %></th>
-    <th><%= record.stock  %></th>
+    <th><a href="/records/<%= record.id %>"><%= record.title  %></a></th>
+    <th><a href="/artists/<%= record.artist_id %>"><%= record.artist  %></a></th>
+    <th><%= record.check_stock_level()   %></th>
 
   </tr>
 
   <% end %>
 </table>
+
+<form action="/records/new" method="post">
+  <input type="submit" value="Add New Record">
+</form>
+</main>

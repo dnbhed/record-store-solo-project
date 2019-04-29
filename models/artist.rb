@@ -33,6 +33,27 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+
+
+  def records()
+    sql = "SELECT * FROM records
+    WHERE artist_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |record| Record.new(record)}
+  end
+
+  def delete()
+    if self.records != []
+      return false
+    else
+      sql = "DELETE FROM artists
+      WHERE id = $1;"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    end
+  end
+
   def self.find(id)
     sql = "SELECT artists.* FROM artists
     WHERE id = $1;"

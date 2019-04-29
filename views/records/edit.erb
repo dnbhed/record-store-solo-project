@@ -1,0 +1,25 @@
+<h1>Edit Record</h1>
+
+<form class="edit-record" action="/records/<%=@record.id  %>" method="post">
+  <p><label for="title">Title:</label>
+  <input type="text" name="title" value="<%= @record.title %>" id="title"></p>
+
+
+  <label for="artist_select">Select Artist:</label>
+      <select name="artist_id" id="artist_select" selected="<%= @record.artist_id  %>">
+        <% @artists.each do |artist| %>
+          <% if artist.id == @record.artist_id %>
+            <option value=<%= artist.id %> selected><%= artist.name %></option>
+          <% else %>
+            <option value=<%= artist.id %>><%= artist.name %></option>
+          <% end %>
+        <% end %>
+      </select>
+
+  <p><label for="stock">Stock:</label>
+  <input type="number" name="stock" id="stock" value="<%= @record.stock %>"></p>
+
+  <div class="edit-record">
+      <input type="submit" value="Edit Record"/>
+    </div>
+</form>

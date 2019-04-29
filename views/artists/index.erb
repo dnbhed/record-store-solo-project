@@ -3,10 +3,14 @@
 <main id="artist-list">
     <% @artists.each do |artist|  %>
       <section class="artist">
-        <h3><%= artist.name %></h3>
+        <h3><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h3>
 
 
       </section>
 
     <% end %>
+
+<form action="/artists/new" method="post">
+  <input type="submit" value="Add New Artist">
+</form>
 </main>
