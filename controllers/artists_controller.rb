@@ -39,7 +39,9 @@ end
 post '/artists/:id/delete' do
   artist = Artist.find(params['id'])
   records = Record.find_all_by_artist(params['id'])
-  records.each.delete()
+  for record in records
+    record.delete
+  end
   artist.delete()
   redirect to '/artists'
 end

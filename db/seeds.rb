@@ -29,6 +29,11 @@ record2 = Record.new({
   'artist_id' => artist3.id
   })
 record3 = Record.new({
+  'title' => 'Low Society',
+  'stock' => '11',
+  'artist_id' => artist3.id
+  })
+record4 = Record.new({
   'title' => 'Magnetic Eyes',
   'stock' => '5',
   'artist_id' => artist1.id
@@ -37,6 +42,7 @@ record3 = Record.new({
 record1.save()
 record2.save()
 record3.save()
+record4.save()
 
 binding.pry()
 nil
