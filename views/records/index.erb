@@ -10,9 +10,9 @@
 
   <% @records.each do |record|   %>
   <tr>
-    <th><a href="/records/<%= record.id %>"><%= record.title  %></a></th>
-    <th><a href="/artists/<%= record.artist_id %>"><%= record.artist  %></a></th>
-    <th><%= record.check_stock_level()   %></th>
+    <td><a href="/records/<%= record.id %>"><%= record.title  %></a></td>
+    <td><a href="/artists/<%= record.artist_id %>"><%= record.artist  %></a></td>
+    <td><%= record.check_stock_level()   %></td>
 
   </tr>
 

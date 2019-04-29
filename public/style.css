@@ -1,6 +1,4 @@
 body {
-  display: grid;
-  grid-template: repeat(12, 1fr) / repeat(12, 1fr);
   background-color: rgb(85, 85, 85);
   font-family: Verdana;
   max-width: auto;
@@ -8,21 +6,40 @@ body {
 }
 
 nav {
-  grid-area: 1/1/3/13;
+  background-color: rgb(55,68,46);
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
 
 }
 
-#artists {
-  grid-area: 5/1/8/7;
-  color: rgb(55,68,46);
+nav li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
+  border: 2px;
   border-radius: 2px;
   background-color: rgb(150, 140, 0);
+  padding: 5px;
+  color: rgb(55,68,46);
 }
 
 
+#artists {
+  color: rgb(55,68,46);
+}
+
+td {
+  background-color: grey;
+  color: white;
+}
+
 table {
-  grid-area: 5/1/12/12;
-  grid-gap:10px;
-  border: 5px;
-  background-color: DarkBlue;
+  width: 1200px;
+  border: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
 }
