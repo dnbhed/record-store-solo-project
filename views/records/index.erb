@@ -1,0 +1,20 @@
+<h1>Records</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Stock Level</th>
+  </tr>
+
+
+  <% @records.each do |record|   %>
+  <tr>
+    <th><%= record.title  %></th>
+    <th><%= record.artist  %></th>
+    <th><%= record.stock  %></th>
+
+  </tr>
+
+  <% end %>
+</table>

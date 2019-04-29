@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('artist.rb')
+require_relative('desk.rb')
 require('pry-byebug')
 
 class Record
@@ -27,6 +29,14 @@ class Record
     @id = results.first()['id'].to_i
   end
 
+  def artist()
+    sql = "SELECT * FROM artists
+    WHERE id = $1;"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)
+    return Artist.new(result.first).name
+  end
+
   def self.find(id)
     sql = "SELECT records.* FROM records
     WHERE id = $1;"
@@ -38,7 +48,7 @@ class Record
   def self.all()
     sql = "SELECT records.* FROM records;"
     results = SqlRunner.run(sql)
-    return results.map { |record| Record.new(artist) }
+    return results.map { |record| Record.new(record) }
   end
 
   def self.delete_all()
