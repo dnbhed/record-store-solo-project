@@ -31,18 +31,18 @@ class Record
     @id = results.first()['id'].to_i
   end
 
-  def artist()
-    sql = "SELECT * FROM artists
-    WHERE id = $1;"
-    values = [@artist_id]
-    result = SqlRunner.run(sql, values)
-    return Artist.new(result.first).name
-  end
+  # def artist()
+  #   sql = "SELECT * FROM artists
+  #   WHERE id = $1;"
+  #   values = [@artist_id]
+  #   result = SqlRunner.run(sql, values)
+  #   return Artist.new(result.first).name
+  # end
 
   def update()
     sql = "UPDATE records
     SET
-    (title, stock, artist_id)
+    (title, stock, buy_price, sell_price, vinyl_wav)
     =
     ($1, $2, $3, $4, $5)
     WHERE id = $6;"

@@ -2,24 +2,25 @@ require_relative('../db/sql_runner')
 
 class Genre
 
-  attr_reader :id
+  attr_reader :id, :bpm
   attr_accessor :name
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
+    @bpm = options['bpm'].to_i
   end
 
   def save()
     sql = "INSERT INTO genres
     (
-      name
+      name, bpm
     ) VALUES
     (
-      $1
+      $1, $2
     )
       RETURNING id;"
-    values = [@name]
+    values = [@name, @bpm]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -27,9 +28,9 @@ class Genre
   def update()
     sql = "UPDATE genres
     SET
-    name = $1
-    WHERE id = $2;"
-    values = [@name, @id]
+    (name, bpm) = ($1, $2)
+    WHERE id = $3;"
+    values = [@name, @bpm, @id]
     SqlRunner.run(sql, values)
   end
 

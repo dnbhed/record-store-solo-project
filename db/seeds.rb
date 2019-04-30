@@ -6,12 +6,16 @@ require_relative('../models/track')
 
 require('pry-byebug')
 
+Track.delete_all()
 Genre.delete_all()
 Record.delete_all()
 Artist.delete_all()
 
+
+
 genre1 = Genre.new({
-  'name' => 'DnB'
+  'name' => 'DnB',
+  'bpm' => '174'
   })
 genre1.save()
 
@@ -58,6 +62,15 @@ record1.save()
 record2.save()
 record3.save()
 record4.save()
+
+track1 = Track.new({
+  'title' => 'Days Go By',
+  'artist_id' => artist3.id,
+  'genre_id' => genre1.id,
+  'label' => 'Hospital Records',
+  'key' => '4A'
+  })
+track1.save()
 
 binding.pry()
 nil
