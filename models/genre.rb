@@ -34,8 +34,6 @@ class Genre
     SqlRunner.run(sql, values)
   end
 
-
-
   def tracks()
     sql = "SELECT * FROM tracks
     WHERE genre_id = $1;"

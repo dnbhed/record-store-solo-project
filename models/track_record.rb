@@ -27,7 +27,16 @@ class TrackRecord
     @id = results.first()['id'].to_i
   end
 
-
+  def update()
+    sql = "UPDATE tracks_records
+    SET
+    (track_id, record_id, track_number)
+    =
+    ($1, $2, $3)
+    WHERE id = $4;"
+    values = [@@track_id, @record_id, @track_number, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.all()
     sql = "SELECT * FROM tracks_records;"

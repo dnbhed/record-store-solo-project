@@ -1,13 +1,12 @@
 require_relative('../db/sql_runner')
 require_relative('artist.rb')
-require_relative('desk.rb')
 require_relative('track.rb')
 require('pry-byebug')
 
 class Record
 
-  attr_reader :id, :title
-  attr_accessor :stock, :buy_price, :sell_price, :vinyl_wav
+  attr_reader :id,
+  attr_accessor :title, :stock, :buy_price, :sell_price, :vinyl_wav
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -50,7 +49,6 @@ class Record
     WHERE id = $6;"
     values = [@title, @stock, @abuy_price, @sell_price, @vinyl_wav, @id]
     SqlRunner.run(sql, values)
-
   end
 
   def check_stock_level()
@@ -64,20 +62,30 @@ class Record
     end
   end
 
+  def check_type()
+    if @vinyl_wav = 'true'
+      return 'Vynil'
+    else
+      return 'Wav'
+    end
+  end
+
+  def check_markup()
+    markup = (@sell_price - @buy_price)
+    return markup
+  end
+
+  def check_potential_profit()
+    potential_profit = self.check_markup * @stock
+    return potential_profit
+  end
+
   def delete()
       sql = "DELETE FROM records
       WHERE id = $1;"
       values = [@id]
       SqlRunner.run(sql, values)
   end
-
-  # def self.find_all_by_artist(artist_id)
-  #   sql = sql = "SELECT records.* FROM records
-  #   WHERE artist_id = $1;"
-  #   values = [artist_id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |record| Record.new(record) }
-  # end
 
   def self.find(id)
     sql = "SELECT records.* FROM records

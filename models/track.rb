@@ -66,6 +66,14 @@ class Track
     return genre.bpm.to_i
   end
 
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = $1; "
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)
+    artist = Artist.new(result.first)
+    return artist.name
+  end
+
   def self.find(id)
     sql = "SELECT tracks.* FROM tracks WHERE id = $1;"
     values = [id]

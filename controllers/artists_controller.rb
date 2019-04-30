@@ -36,12 +36,12 @@ post '/artists/:id' do
   redirect to "/artists/#{params['id']}"
 end
 
-post '/artists/:id/delete' do
-  artist = Artist.find(params['id'])
-  records = Record.find_all_by_artist(params['id'])
-  for record in records
-    record.delete
-  end
-  artist.delete()
-  redirect to '/artists'
-end
+# post '/artists/:id/delete' do
+#   artist = Artist.find(params['id'])
+#   records = Record.find_all_by_artist(params['id'])
+#   for record in records
+#     record.delete
+#   end
+#   artist.delete()
+#   redirect to '/artists'
+# end
