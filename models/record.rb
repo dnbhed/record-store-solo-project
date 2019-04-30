@@ -5,26 +5,28 @@ require('pry-byebug')
 
 class Record
 
-  attr_reader :id, :title, :artist_id
-  attr_accessor :stock
+  attr_reader :id, :title
+  attr_accessor :stock, :buy_price, :sell_price, :vinyl_wav
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @stock = options['stock'].to_i
-    @artist_id = options['artist_id'].to_i
+    @buy_price = options['buy_price'].to_i
+    @sell_price = options['sell_price'].to_i
+    @vinyl_wav = options['vinyl_wav']
   end
 
   def save()
     sql = "INSERT INTO records
     (
-      title, stock, artist_id
+      title, stock, buy_price, sell_price, vinyl_wav
     ) VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4, $5
     )
       RETURNING id;"
-    values = [@title, @stock, @artist_id]
+    values = [@title, @stock, @buy_price, @sell_price, @vinyl_wav]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -42,9 +44,9 @@ class Record
     SET
     (title, stock, artist_id)
     =
-    ($1, $2, $3)
-    WHERE id = $4;"
-    values = [@title, @stock, @artist_id, @id]
+    ($1, $2, $3, $4, $5)
+    WHERE id = $6;"
+    values = [@title, @stock, @abuy_price, @sell_price, @vinyl_wav, @id]
     SqlRunner.run(sql, values)
 
   end
@@ -67,13 +69,13 @@ class Record
       SqlRunner.run(sql, values)
   end
 
-  def self.find_all_by_artist(artist_id)
-    sql = sql = "SELECT records.* FROM records
-    WHERE artist_id = $1;"
-    values = [artist_id]
-    results = SqlRunner.run(sql, values)
-    return results.map { |record| Record.new(record) }
-  end
+  # def self.find_all_by_artist(artist_id)
+  #   sql = sql = "SELECT records.* FROM records
+  #   WHERE artist_id = $1;"
+  #   values = [artist_id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map { |record| Record.new(record) }
+  # end
 
   def self.find(id)
     sql = "SELECT records.* FROM records

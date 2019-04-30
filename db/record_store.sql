@@ -25,7 +25,7 @@ CREATE TABLE records
   stock INT4,
   buy_price INT4,
   sell_price INT4,
-  type BOOLEAN
+  vinyl_wav BOOLEAN
 );
 
 CREATE TABLE tracks
