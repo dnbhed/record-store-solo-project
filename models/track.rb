@@ -40,7 +40,7 @@ class Track
     (
       $1, $2, $3, $4, $5
     ) WHERE id = $6;"
-    values = [@track_title, @artist_id, @genre_id, @label, @key]
+    values = [@track_title, @artist_id, @genre_id, @label, @key, @id]
     results = SqlRunner.run(sql, values)
   end
 
@@ -78,12 +78,12 @@ class Track
     sql = "SELECT tracks.* FROM tracks WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql, values)
-    return Record.new(result.first)
+    return Track.new(result.first)
   end
 
   def self.all()
     sql = "SELECT tracks.* FROM tracks;"
-    results = Sql_Runner.run(sql)
+    results = SqlRunner.run(sql)
     return results.map { |track| Track.new(track)}
   end
 

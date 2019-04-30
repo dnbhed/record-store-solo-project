@@ -1,0 +1,10 @@
+<h1><%= @track.track_title %> by <%= @track.artist %> </h1>
+
+<p>Title: <%= @track.track_title %></p>
+<p>Artist: <%= @track.artist %></p>
+<p>Genre: <%= @track.genre %></p>
+<p>BPM: <%= @track.bpm %></p>
+<p>Label: <%= @track.label %></p>
+<p>Key: <%= @track.key %></p>
+<p><a href="/tracks/<%= @track.id %>/edit">Edit</a></p>
+<form action="/tracks/<%= @track.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
