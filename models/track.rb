@@ -1,16 +1,16 @@
 require_relative('../db/sql_runner')
-
+require_relative('genre')
 require('pry-byebug')
 
 
 class Track
 
   attr_reader :id
-  attr_accessor :title, :artist_id, :genre_id, :label, :key
+  attr_accessor :track_title, :artist_id, :genre_id, :label, :key
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @title = options['title']
+    @track_title = options['track_title']
     @artist_id = options['artist_id'].to_i
     @genre_id = options['genre_id'].to_i
     @label = options['label']
@@ -20,13 +20,13 @@ class Track
   def save()
     sql = "INSERT INTO tracks
     (
-      title, artist_id, genre_id, label, key
+      track_title, artist_id, genre_id, label, key
     ) VALUES
     (
       $1, $2, $3, $4, $5
     )
       RETURNING id;"
-    values = [@title, @artist_id, @genre_id, @label, @key]
+    values = [@track_title, @artist_id, @genre_id, @label, @key]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -35,12 +35,12 @@ class Track
     sql = "UPDATE tracks
     SET
     (
-      title, artist_id, genre_id, label, key
+      track_title, artist_id, genre_id, label, key
     ) =
     (
       $1, $2, $3, $4, $5
     ) WHERE id = $6;"
-    values = [@title, @artist_id, @genre_id, @label, @key]
+    values = [@track_title, @artist_id, @genre_id, @label, @key]
     results = SqlRunner.run(sql, values)
   end
 
@@ -48,6 +48,22 @@ class Track
     sql = "DELETE FROM tracks WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql,values)
+  end
+
+  def genre()
+    sql = "SELECT * FROM genres WHERE id = $1; "
+    values = [@genre_id]
+    result = SqlRunner.run(sql, values)
+    genre = Genre.new(result.first)
+    return genre.name
+  end
+
+  def bpm()
+    sql = "SELECT * FROM genres WHERE id = $1; "
+    values = [@genre_id]
+    result = SqlRunner.run(sql, values)
+    genre = Genre.new(result.first)
+    return genre.bpm.to_i
   end
 
   def self.find(id)

@@ -31,7 +31,7 @@ CREATE TABLE records
 CREATE TABLE tracks
 (
   id SERIAL8 primary key,
-  title VARCHAR(255) not null,
+  track_title VARCHAR(255) not null,
   artist_id INT8 references artists(id) ON DELETE SET NULL,
   genre_id INT8 references genres(id) ON DELETE SET NULL,
   label VARCHAR(255) not null,

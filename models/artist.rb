@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require_relative('record')
+require_relative('track')
 
 class Artist
 
@@ -33,14 +35,22 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
-
-
   def records()
-    sql = "SELECT * FROM records
+    sql = "SELECT * From records
+    INNER JOIN tracks_records ON tracks_records.record_id = records.id
+    INNER JOIN tracks ON tracks_records.track_id = tracks.id
     WHERE artist_id = $1;"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map { |record| Record.new(record)}
+    return results.map { |record| Record.new(record)  }
+  end
+
+  def tracks()
+    sql = "SELECT * FROM tracks
+    WHERE artist_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |track| Track.new(track)}
   end
 
   def delete()

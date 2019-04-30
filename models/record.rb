@@ -1,6 +1,7 @@
 require_relative('../db/sql_runner')
 require_relative('artist.rb')
 require_relative('desk.rb')
+require_relative('track.rb')
 require('pry-byebug')
 
 class Record
@@ -31,13 +32,14 @@ class Record
     @id = results.first()['id'].to_i
   end
 
-  # def artist()
-  #   sql = "SELECT * FROM artists
-  #   WHERE id = $1;"
-  #   values = [@artist_id]
-  #   result = SqlRunner.run(sql, values)
-  #   return Artist.new(result.first).name
-  # end
+  def tracks()
+    sql = "SELECT * FROM tracks
+    INNER JOIN tracks_records tr ON tr.track_id = tracks.id
+    WHERE tr.record_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |track| Track.new(track)  }
+  end
 
   def update()
     sql = "UPDATE records
