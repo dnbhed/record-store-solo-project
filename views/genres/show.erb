@@ -1,0 +1,7 @@
+<h1><%= @genre.name.upcase %></h1>
+
+<main id="genre-search">
+  Name: <%= @genre.name  %>
+  <p><a href="/genres/<%= @genre.id %>/edit">Edit</a></p>
+  <form action="/genres/<%= @genre.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+</main>

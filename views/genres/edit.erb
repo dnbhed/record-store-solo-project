@@ -1,0 +1,15 @@
+<h1>Edit <%= @genre.name %></h1>
+
+<form class="add-genre" action="/genres/<%= @genre.id  %>" method="post">
+
+  <label for="name">Name: </label>
+  <input type="text" name="name" id="name" value="<%= @genre.name %>">
+
+  <label for="name">BPM: </label>
+  <input type="text" name="name" id="name" value="<%= @genre.bpm %>">
+
+  <div class="form-el">
+        <input type="submit" value="Edit Artist"/>
+      </div>
+
+</form>

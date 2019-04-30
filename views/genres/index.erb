@@ -1,0 +1,16 @@
+<h1>Genres</h1>
+
+<main id="genre-list">
+    <% @genres.each do |genre|  %>
+      <section class="genre">
+        <h3><a href="/genres/<%= genre.id %>"><%= genre.name %></a></h3>
+
+
+      </section>
+
+    <% end %>
+
+<form action="/genres/new" method="post">
+  <input type="submit" value="Add New Genre">
+</form>
+</main>
