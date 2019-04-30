@@ -1,7 +1,10 @@
-<h1><%= @record.title %> by <%= @record.artist %></h1>
+<h1><%= @record.title %> </h1>
 
 <p>Title: <%= @record.title %></p>
-<p>Artist: <%= @record.artist %></p>
 <p>Stock: <%= @record.stock %></p>
+<p>Buy Price: <%= @record.buy_price %></p>
+<p>Sell Price: <%= @record.sell_price %></p>
+<p>Markup: <%= @record.check_markup %></p>
+<p>Type: <%= @record.check_type %></p>
 <p><a href="/records/<%= @record.id %>/edit">Edit</a></p>
 <form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete"></form>

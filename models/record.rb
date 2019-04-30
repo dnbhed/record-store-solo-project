@@ -66,7 +66,7 @@ class Record
     if @vinyl_wav == true
       return 'Vynil'
     else
-      return 'Wav'
+      return 'WAV'
     end
   end
 

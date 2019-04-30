@@ -38,7 +38,7 @@ end
 
 post '/artists/:id/delete' do
   artist = Artist.find(params['id'])
-  tracks = artist.tracks(params['id'])
+  tracks = artist.tracks()
   for track in tracks
     track.delete
   end
