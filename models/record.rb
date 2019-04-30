@@ -5,7 +5,7 @@ require('pry-byebug')
 
 class Record
 
-  attr_reader :id,
+  attr_reader :id
   attr_accessor :title, :stock, :buy_price, :sell_price, :vinyl_wav
 
   def initialize(options)
@@ -63,7 +63,7 @@ class Record
   end
 
   def check_type()
-    if @vinyl_wav = 'true'
+    if @vinyl_wav == true
       return 'Vynil'
     else
       return 'Wav'

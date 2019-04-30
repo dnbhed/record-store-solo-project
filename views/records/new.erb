@@ -1,18 +1,31 @@
 <h1>Add new record</h1>
 
 <form class="add-record" action="/records" method="post">
+
   <p><label for="title">Title:</label>
   <input type="text" name="title" value="Enter Title" id="title"></p>
 
-  <p><label for="artist-select">Artist:</label>
+  <!-- <p><label for="artist-select">Artist:</label>
   <select name="artist_id" id="artist_select">
     <% @artists.each do |artist| %>
     <option value=<%= artist.id  %>><%= artist.name %></option>
     <% end %>
-  </select></p>
+  </select></p> -->
 
   <p><label for="stock">Stock:</label>
-  <input type="number" name="stock" value="0" id="stock"></p>
+  <input type="number" name="stock" value="0" id="stock" min="0"></p>
+
+  <p><label for="buy_price">Buy Price:</label>
+  <input type="number" name="buy_price" value="0" id="buy_price" min="0"></p>
+
+  <p><label for="sell_price">Sell Price:</label>
+  <input type="number" name="sell_price" value="0" id="sell_price" min="4"></p>
+
+  <p><label for="type-select">Artist:</label>
+  <select name="vinyl_wav" id="vinyl_wav">
+    <option value="true">Vinyl</option>
+    <option value="false">WAV</option>
+  </select>
 
   <div class="add-record">
       <input type="submit" value="Add Record"/>

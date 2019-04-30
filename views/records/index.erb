@@ -3,16 +3,24 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Artist</th>
     <th>Stock Level</th>
+    <th>Buy Price</th>
+    <th>Sell Price</th>
+    <th>Mark-up</th>
+    <th>Potential Profit</th>
+    <th>Vinyl/Wav</th>
   </tr>
 
 
   <% @records.each do |record|   %>
   <tr>
     <td><a href="/records/<%= record.id %>"><%= record.title  %></a></td>
-    <td><a href="/artists/<%= record.artist_id %>"><%= record.artist  %></a></td>
     <td><%= record.check_stock_level()   %></td>
+    <td>£<%= record.buy_price()   %></td>
+    <td>£<%= record.sell_price()   %></td>
+    <td>£<%= record.check_markup()   %></td>
+    <td>£<%= record.check_potential_profit()   %></td>
+    <td><%= record.check_type()   %></td>
 
   </tr>
 

@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/artist.rb')
-require_relative('../models/record.rb')
+require_relative('../models/track.rb')
 also_reload('../models/*')
 
 get '/artists' do
@@ -36,12 +36,12 @@ post '/artists/:id' do
   redirect to "/artists/#{params['id']}"
 end
 
-# post '/artists/:id/delete' do
-#   artist = Artist.find(params['id'])
-#   records = Record.find_all_by_artist(params['id'])
-#   for record in records
-#     record.delete
-#   end
-#   artist.delete()
-#   redirect to '/artists'
-# end
+post '/artists/:id/delete' do
+  artist = Artist.find(params['id'])
+  tracks = artist.tracks(params['id'])
+  for track in tracks
+    track.delete
+  end
+  artist.delete()
+  redirect to '/artists'
+end

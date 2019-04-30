@@ -9,7 +9,6 @@ get '/records' do
   erb(:"records/index")
 end
 
-
 get '/records/new' do
   @records = Record.all()
   @artists = Artist.all()

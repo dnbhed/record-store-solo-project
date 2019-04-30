@@ -31,29 +31,29 @@ artist3.save()
 record1 = Record.new({
   'title' => 'Back to Basics',
   'stock' => '3',
-  'buy_price' => '5',
-  'sell_price' => '5',
-  'vinyl_wav' => 'true'
+  'buy_price' => '1',
+  'sell_price' => '10',
+  'vinyl_wav' => 'false'
   })
 record2 = Record.new({
   'title' => 'High Society',
   'stock' => '10',
-  'buy_price' => '5',
-  'sell_price' => '5',
+  'buy_price' => '3',
+  'sell_price' => '6',
   'vinyl_wav' => 'true'
   })
 record3 = Record.new({
   'title' => 'Low Society',
   'stock' => '11',
   'buy_price' => '5',
-  'sell_price' => '5',
-  'vinyl_wav' => 'true'
+  'sell_price' => '7',
+  'vinyl_wav' => 'false'
   })
 record4 = Record.new({
   'title' => 'Magnetic Eyes',
   'stock' => '5',
   'buy_price' => '5',
-  'sell_price' => '5',
+  'sell_price' => '10',
   'vinyl_wav' => 'true'
   })
 
