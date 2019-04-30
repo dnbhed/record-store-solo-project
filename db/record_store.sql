@@ -23,7 +23,9 @@ CREATE TABLE records
   id SERIAL8 primary key,
   title VARCHAR(255) not null,
   stock INT4,
-
+  buy_price INT4,
+  sell_price INT4,
+  type BOOLEAN
 );
 
 CREATE TABLE tracks
