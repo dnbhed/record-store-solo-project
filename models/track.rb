@@ -5,6 +5,9 @@ require('pry-byebug')
 
 class Track
 
+  attr_reader :id
+  attr_accessor :title, :artist_id, :genre_id, :label, :key
+
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
