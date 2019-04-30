@@ -6,10 +6,14 @@ require_relative('../models/track')
 
 require('pry-byebug')
 
+Genre.delete_all()
 Record.delete_all()
 Artist.delete_all()
 
-
+genre1 = Genre.new({
+  'name' => 'DnB'
+  })
+genre1.save()
 
 artist1 = Artist.new({
   'name' => 'Matrix & Futurebound'})
@@ -25,28 +29,28 @@ record1 = Record.new({
   'title' => 'Back to Basics',
   'stock' => '3',
   'buy_price' => '5',
-  'sell_price' => '5'
+  'sell_price' => '5',
   'vinyl_wav' => 'true'
   })
 record2 = Record.new({
   'title' => 'High Society',
   'stock' => '10',
   'buy_price' => '5',
-  'sell_price' => '5'
+  'sell_price' => '5',
   'vinyl_wav' => 'true'
   })
 record3 = Record.new({
   'title' => 'Low Society',
   'stock' => '11',
   'buy_price' => '5',
-  'sell_price' => '5'
+  'sell_price' => '5',
   'vinyl_wav' => 'true'
   })
 record4 = Record.new({
   'title' => 'Magnetic Eyes',
   'stock' => '5',
   'buy_price' => '5',
-  'sell_price' => '5'
+  'sell_price' => '5',
   'vinyl_wav' => 'true'
   })
 

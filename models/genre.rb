@@ -67,7 +67,7 @@ class Genre
     results = SqlRunner.run(sql)
     return results.map { |genre| Genre.new(genre) }
   end
-track
+
   def self.delete_all()
     sql = "DELETE FROM genres"
     SqlRunner.run(sql)
