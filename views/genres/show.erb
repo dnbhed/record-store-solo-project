@@ -1,7 +1,27 @@
-<h1><%= @genre.name.upcase %></h1>
+<h1><%= @genre.name.upcase %> Tracks</h1>
 
 <main id="genre-search">
-  Name: <%= @genre.name  %>
+  <table>
+    <tr>
+      <th>Track Title</th>
+      <th>Genre</th>
+      <th>BPM</th>
+      <th>Label</th>
+      <th>Key</th>
+    </tr>
+
+    <% @tracks.each do |track| %>
+      <% if track.genre_id == @genre.id %>
+    <tr>
+      <td><a href="/tracks/<%= track.id %>"><%= track.track_title %></a></td>
+      <td><a href="/genres/<%= track.genre_id %>"><%= track.genre %></td>
+      <td><%= track.bpm %></td>
+      <td><%= track.label %></td>
+      <td><%= track.key %></td>
+    </tr>
+      <% end %>
+    <% end %>
+  </table>
 
   <form action="/genres/<%= @genre.id %>/edit" method="POST"><input type="submit" value="Edit"></form>
 

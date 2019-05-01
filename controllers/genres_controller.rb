@@ -1,6 +1,7 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/genre.rb')
+require_relative('../models/track.rb')
 also_reload('../models/*')
 
 get '/genres' do
@@ -21,6 +22,7 @@ end
 
 get '/genres/:id' do
   @genre = Genre.find(params['id'])
+  @tracks = Track.all()
   erb(:"genres/show")
 end
 
