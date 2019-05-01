@@ -1,16 +1,19 @@
 <h1><%= @record.title %> </h1>
 
-<p>Title: <%= @record.title %></p>
-<p>Stock: <%= @record.stock %></p>
-<p>Buy Price: <%= @record.buy_price %></p>
-<p>Sell Price: <%= @record.sell_price %></p>
-<p>Markup: <%= @record.check_markup %></p>
-<p>Type: <%= @record.check_type %></p>
+<table class="one">
 
-Tracks:
+  <tr><th>Title: </th><td><%= @record.title %></td></tr>
+  <tr><th>Stock: </th><td><%= @record.stock %></td></tr>
+  <tr><th>Buy Price: </th><td><%= @record.buy_price %></td></tr>
+  <tr><th>Sell Price: </th><td><%= @record.sell_price %></td></tr>
+  <tr><th>Markup: </th><td><%= @record.check_markup %></td></tr>
+  <tr><th>Type: </th><td><%= @record.check_type %></td></tr>
+
+</table>
+
+<h2>Tracks:</h2>
+
 <br>
-<br>
-<table>
   <table>
     <tr>
       <th>Track Title</th>
@@ -33,7 +36,7 @@ Tracks:
 
     <% end %>
   </table>
-</table>
+
 
 <form action="/records/<%= @record.id %>/edit" method="POST"><input type="submit" value="Edit"></form>
 <form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
