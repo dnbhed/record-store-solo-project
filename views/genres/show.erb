@@ -2,6 +2,8 @@
 
 <main id="genre-search">
   Name: <%= @genre.name  %>
-  <p><a href="/genres/<%= @genre.id %>/edit">Edit</a></p>
+
+  <form action="/genres/<%= @genre.id %>/edit" method="POST"><input type="submit" value="Edit"></form>
+
   <form action="/genres/<%= @genre.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
 </main>

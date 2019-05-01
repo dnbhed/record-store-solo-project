@@ -35,5 +35,5 @@ Tracks:
   </table>
 </table>
 
-<p><a href="/records/<%= @record.id %>/edit">Edit</a></p>
+<form action="/records/<%= @record.id %>/edit" method="POST"><input type="submit" value="Edit"></form>
 <form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
