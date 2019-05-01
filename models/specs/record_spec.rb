@@ -29,4 +29,6 @@ class RecordTest < MiniTest::Test
     assert_equal('WAV', @record1.check_type)
   end
 
+  
+
 end
