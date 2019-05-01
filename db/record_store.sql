@@ -35,7 +35,7 @@ CREATE TABLE tracks
   artist_id INT8 references artists(id) ON DELETE SET NULL,
   genre_id INT8 references genres(id) ON DELETE SET NULL,
   label VARCHAR(255) not null,
-  key VARCHAR(2) not null
+  key VARCHAR(3) not null
 );
 
 CREATE TABLE tracks_records
