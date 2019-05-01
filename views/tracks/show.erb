@@ -1,10 +1,27 @@
 <h1><%= @track.track_title %> by <%= @track.artist %> </h1>
 
-<p>Title: <%= @track.track_title %></p>
-<p>Artist: <%= @track.artist %></p>
-<p>Genre: <%= @track.genre %></p>
-<p>BPM: <%= @track.bpm %></p>
-<p>Label: <%= @track.label %></p>
-<p>Key: <%= @track.key %></p>
+<table class="one">
+  <tr>
+    <th>Title: </th><td><%= @track.track_title %></td>
+  </tr>
+  <tr>
+    <th>Artist: </th><td><%= @track.artist %></td>
+  </tr>
+  <tr>
+    <th>Genre: </th><td><%= @track.genre %></td>
+  </tr>
+  <tr>
+    <th>BPM: </th><td><%= @track.bpm %></td>
+  </tr>
+  <tr>
+    <th>Label: </th><td><%= @track.label %></td>
+  </tr>
+  <tr>
+    <th>Key: </th><td><%= @track.key %></td>
+  </tr>
+
+</table>
+
+
 <form action="/tracks/<%= @track.id %>/edit" method="POST"><input type="submit" value="Edit"></form>
 <form action="/tracks/<%= @track.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
