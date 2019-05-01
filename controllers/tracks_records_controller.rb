@@ -41,7 +41,7 @@ end
 post '/tracks_records/:id' do
   track_record = TrackRecord.new(params)
   track_record.update()
-  redirect to "/tracks/#{params['id']}"
+  redirect to "/tracks_records/#{params['id']}"
 end
 
 post '/tracks_records/:id/delete' do
