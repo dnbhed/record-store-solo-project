@@ -1,7 +1,6 @@
 header {
   text-align: center;
   font-family: arial;
-  background: url('black-music-banner.jpg') center center;
   height: 300px;
   width: 100%;
   align-self: center;
@@ -9,7 +8,8 @@ header {
 
 
 body {
-  background-color: rgb(85, 85, 85);
+  background: url('speaker-music-blue2.jpg') center/cover;
+  height: auto;
   font-family: Verdana;
   max-width: auto;
   grid-gap: 10px;
