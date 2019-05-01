@@ -1,0 +1,27 @@
+<h1>Add Track to Record</h1>
+
+<form class="add-track-to-record" action="/tracks_records" method="post">
+
+  <label for="track_id">Select Track:</label>
+  <select name="track_select">
+    <% @tracks.each do |track| %>
+    <option value="<%= track.id %>"><%= track.track_title %>
+    </option>
+    <% end %>
+  </select>
+
+  <label for="record_id">Select Record:</label>
+  <select name="record_select">
+    <% @records.each do |record| %>
+    <option value="<%= record.id %>"><%= record.title %>
+    </option>
+    <% end %>
+  </select>
+
+  <label for="track_number">Enter Track Number:</label>
+  <input type="number" name="track_number" value="1" min="1">
+
+  <div class="add-track-to-record">
+    <input type="submit" value="Add Track to Record"/>
+  </div>
+</form>

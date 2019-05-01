@@ -91,8 +91,8 @@ class Record
     sql = "SELECT records.* FROM records
     WHERE id = $1;"
     values = [id]
-    result = SqlRunner.run(sql, values)
-    return Record.new(result.first)
+    result = SqlRunner.run(sql, values).first
+    return Record.new(result)
   end
 
   def self.all()

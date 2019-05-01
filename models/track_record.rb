@@ -1,4 +1,7 @@
 require_relative('../db/sql_runner')
+require_relative('track')
+require_relative('record')
+
 
 class TrackRecord
 
@@ -34,7 +37,7 @@ class TrackRecord
     =
     ($1, $2, $3)
     WHERE id = $4;"
-    values = [@@track_id, @record_id, @track_number, @id]
+    values = [@track_id, @record_id, @track_number, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -56,11 +59,22 @@ class TrackRecord
     return record.title
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM tracks_records
+    WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    track_record = TrackRecord.new(result)
+    return track_record
+  end
+
   def self.all()
     sql = "SELECT * FROM tracks_records;"
     results = SqlRunner.run(sql)
     return results.map { |track_record| TrackRecord.new(track_record)  }
   end
+
+
 
   def self.delete(id)
     sql = "DELETE FROM tracks_records
