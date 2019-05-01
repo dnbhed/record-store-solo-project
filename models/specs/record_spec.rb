@@ -25,4 +25,8 @@ class RecordTest < MiniTest::Test
     assert_equal('Vinyl', @record2.check_type)
   end
 
+  def test_record_is_wav()
+    assert_equal('WAV', @record1.check_type)
+  end
+
 end
