@@ -32,9 +32,9 @@ get '/tracks_records/:id' do
 end
 
 get '/tracks_records/:id/edit' do
-  @tracks_records = TrackRecord.find(params['id'])
+  @track_record = TrackRecord.find(params['id'])
   @records = Record.all()
-  @tracks = Trac.all()
+  @tracks = Track.all()
   erb(:"tracks_records/edit")
 end
 
@@ -47,5 +47,5 @@ end
 post '/tracks_records/:id/delete' do
   track_record = TrackRecord.find(params['id'])
   track_record.delete()
-  redirect to '/tracks'
+  redirect to '/tracks_records'
 end

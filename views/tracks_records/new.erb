@@ -3,17 +3,17 @@
 <form class="add-track-to-record" action="/tracks_records" method="post">
 
   <label for="track_id">Select Track:</label>
-  <select name="track_select">
+  <select name="track_id">
     <% @tracks.each do |track| %>
-    <option value="<%= track.id %>"><%= track.track_title %>
+    <option value=<%= track.id %>><%= track.track_title %>
     </option>
     <% end %>
   </select>
 
   <label for="record_id">Select Record:</label>
-  <select name="record_select">
+  <select name="record_id">
     <% @records.each do |record| %>
-    <option value="<%= record.id %>"><%= record.title %>
+    <option value=<%= record.id %>><%= record.title %>
     </option>
     <% end %>
   </select>

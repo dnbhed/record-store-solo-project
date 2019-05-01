@@ -2,30 +2,30 @@
 
 <form class="edit-track-on-record" action="/tracks_records" method="post">
 
-  <label for="track-select">Select Track:</label>
-  <select name="track_select">
+  <label for="track_id">Select Track:</label>
+  <select name="track_id">
     <% @tracks.each do |track| %>
     <% if track.id == @track_record.track_id %>
     <option value=<%= track.id %> selected><%= track.track_title %>
     </option>
     <% else %>
-    <option value=<%= track.id %>><%= track.name %></option>
+    <option value=<%= track.id %>><%= track.track_title %></option>
     <% end %>
     <% end %>
   </select>
 
-  <label for="record-select">Select Record:</label>
-  <select name="record_select">
+  <label for="record_id">Select Record:</label>
+  <select name="record_id">
     <% @records.each do |record| %>
       <% if record.id == @track_record.record_id %>
         <option value=<%= record.id %> selectd><%= record.title %></option>
       <% else %>
-        <option value=<%= record.id %>><%= record.name %></option>
+        <option value=<%= record.id %>><%= record.title %></option>
       <% end %>
     <% end %>
   </select>
 
-  <label for="track-number">Enter Track Number:</label>
+  <label for="track_number">Enter Track Number:</label>
   <input type="number" name="track_number" value="1" min="1">
 
   <div class="add-track-to-record">
