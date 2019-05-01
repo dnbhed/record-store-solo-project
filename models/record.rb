@@ -81,10 +81,14 @@ class Record
   end
 
   def delete()
+    if self.tracks != []
+      return false
+    else
       sql = "DELETE FROM records
       WHERE id = $1;"
       values = [@id]
       SqlRunner.run(sql, values)
+    end
   end
 
   def self.find(id)

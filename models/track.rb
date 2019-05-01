@@ -44,10 +44,24 @@ class Track
     results = SqlRunner.run(sql, values)
   end
 
-  def delete()
-    sql = "DELETE FROM tracks WHERE id = $1;"
+  def records()
+    sql = "SELECT * FROM records
+    INNER JOIN tracks_records tr ON tr.record_id = records.id
+    WHERE tr.track_id = $1;"
     values = [@id]
-    SqlRunner.run(sql,values)
+    results = SqlRunner.run(sql, values)
+    return results.map { |record| Track.new(record)}
+
+  end
+
+  def delete()
+    if self.records != []
+      return false
+    else
+      sql = "DELETE FROM tracks WHERE id = $1;"
+      values = [@id]
+      SqlRunner.run(sql,values)
+    end
   end
 
   def genre()

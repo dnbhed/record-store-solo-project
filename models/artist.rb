@@ -54,7 +54,7 @@ class Artist
   end
 
   def delete()
-    if self.records != []
+    if self.tracks != []
       return false
     else
       sql = "DELETE FROM artists
