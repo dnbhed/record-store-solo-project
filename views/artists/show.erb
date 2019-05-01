@@ -1,7 +1,33 @@
 <h1><%= @artist.name.upcase %></h1>
 
 <main id="artist-search">
-  Name: <%= @artist.name  %>
+
+  Tracks:
+  <br>
+  <br>
+  <table>
+    <table>
+      <tr>
+        <th>Track Title</th>
+        <th>Genre</th>
+        <th>BPM</th>
+        <th>Label</th>
+        <th>Key</th>
+      </tr>
+
+      <% @tracks.each do |track| %>
+      <tr>
+        <td><a href="/tracks/<%= track.id %>"><%= track.track_title %></a></td>
+        <td><a href="/genres/<%= track.genre_id %>"><%= track.genre %></td>
+        <td><%= track.bpm %></td>
+        <td><%= track.label %></td>
+        <td><%= track.key %></td>
+      </tr>
+
+      <% end %>
+    </table>
+  </table>
+
   <p><a href="/artists/<%= @artist.id %>/edit">Edit</a></p>
   <form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
 </main>

@@ -38,6 +38,24 @@ class TrackRecord
     SqlRunner.run(sql, values)
   end
 
+  def track_title()
+    sql = "SELECT tracks.* FROM tracks
+    WHERE id = $1;"
+    values = [@track_id]
+    result = SqlRunner.run(sql, values)
+    track = Track.new(result.first)
+    return track.track_title
+  end
+
+  def record_title()
+    sql = "SELECT records.* FROM records
+    WHERE id = $1;"
+    values = [@record_id]
+    result = SqlRunner.run(sql, values)
+    record = Record.new(result.first)
+    return record.title
+  end
+
   def self.all()
     sql = "SELECT * FROM tracks_records;"
     results = SqlRunner.run(sql)

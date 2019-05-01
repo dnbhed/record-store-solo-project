@@ -22,6 +22,7 @@ end
 
 get '/artists/:id' do
   @artist = Artist.find(params['id'])
+  @tracks = @artist.tracks()
   erb(:"artists/show")
 end
 

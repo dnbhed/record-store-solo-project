@@ -63,7 +63,7 @@ class Record
   end
 
   def check_type()
-    if @vinyl_wav == true
+    if self.vinyl_wav == 'true'
       return 'Vynil'
     else
       return 'WAV'

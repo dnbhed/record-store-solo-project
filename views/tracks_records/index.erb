@@ -1,0 +1,18 @@
+<h1>Tracks on Records</h1>
+
+<table>
+  <tr>
+    <th>Track Title</th>
+    <th>Record Title</th>
+    <th>Track Number</th>
+  </tr>
+
+  <% @tracks_records.each do |track_record|   %>
+  <tr>
+    <td><a href="/tracks/<%= track_record.trackid %>"><%= record.title  %></a></td>
+    <td><%= record.check_stock_level()   %></td>
+    <td>£<%= record.buy_price()   %></td>
+  </tr>
+
+  <% end %>
+</table>
