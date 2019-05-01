@@ -6,6 +6,9 @@ header {
   align-self: center;
 }
 
+main {
+  color: lightgrey;
+}
 
 body {
   background: url('speaker-music-blue2.jpg') center/cover;
@@ -18,11 +21,11 @@ body {
   justify-content: center;
   margin: 0px;
   padding: 0px;
+  color: lightgrey;
 }
 
 nav {
-
-  background-color: rgb(55,68,46);
+  background-color: rgb(80,120,150);
   list-style-type: none;
   text-align: center;
   padding: 0;
@@ -36,11 +39,35 @@ nav li {
   font-size: 20px;
   padding: 20px;
   border: 2px;
-  border-radius: 2px;
-  background-color: rgb(150, 140, 0);
+  border-radius: 10px;
+  background-color: rgb(141, 66, 92);
   padding: 5px;
   color: rgb(55,68,46);
 
+}
+
+main:link {
+  color: lightyellow;
+}
+
+/* visited link */
+body:visited {
+  color: lightgreen;
+}
+
+/* mouse over link */
+body:hover {
+  color: lightpink;
+}
+
+/* selected link */
+body:active {
+  color: lightblue;
+}
+
+nav li:hover {
+  opacity: 0.8;
+  background-color: rgb(150, 140, 90);
 }
 
 
