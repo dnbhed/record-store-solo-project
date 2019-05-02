@@ -1,9 +1,9 @@
 <h1><%= @artist.name.upcase %></h1>
 
 <main id="artist-search">
+<h3>Tracks:</h3>
 
-  Tracks:
-  <br>
+  
   <br>
     <table class="many">
       <tr>
@@ -25,8 +25,39 @@
 
       <% end %>
     </table>
+<br>
+
+<br>
+
+<h3>Records:</h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Stock Level</th>
+        <th>Buy Price</th>
+        <th>Sell Price</th>
+        <th>Mark-up</th>
+        <th>Potential Profit</th>
+        <th>Vinyl/Wav</th>
+      </tr>
 
 
-  <form action="/artists/<%= @artist.id %>/edit" method="POST"><input type="submit" value="Edit" class="button"></form>
-  <form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete" class="button"></form>
+      <% @records.each do |record|   %>
+      <tr>
+        <td><a href="/records/<%= record.id %>"><%= record.title  %></a></td>
+        <td><%= record.check_stock_level()   %></td>
+        <td>£<%= record.buy_price()   %></td>
+        <td>£<%= record.sell_price()   %></td>
+        <td>£<%= record.check_markup()   %></td>
+        <td>£<%= record.check_potential_profit()   %></td>
+        <td><%= record.check_type  %></td>
+      </tr>
+
+      <% end %>
+    </table>
+
+<br>
+<br>
+  <form action="/artists/<%= @artist.id %>/edit" method="POST"><input type="submit" value="Edit Artist" class="button"></form>
+  <form action="/artists/<%= @artist.id %>/delete" method="POST"><input type="submit" value="Delete Artist" class="button"></form>
 </main>

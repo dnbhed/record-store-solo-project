@@ -4,9 +4,9 @@
 
   <tr><th>Title: </th><td><%= @record.title %></td></tr>
   <tr><th>Stock: </th><td><%= @record.stock %></td></tr>
-  <tr><th>Buy Price: </th><td><%= @record.buy_price %></td></tr>
-  <tr><th>Sell Price: </th><td><%= @record.sell_price %></td></tr>
-  <tr><th>Markup: </th><td><%= @record.check_markup %></td></tr>
+  <tr><th>Buy Price: </th><td>£<%= @record.buy_price %></td></tr>
+  <tr><th>Sell Price: </th><td>£<%= @record.sell_price %></td></tr>
+  <tr><th>Markup: </th><td>£<%= @record.check_markup %></td></tr>
   <tr><th>Type: </th><td><%= @record.check_type %></td></tr>
 
 </table>
@@ -38,5 +38,5 @@
   </table>
 
 
-<form action="/records/<%= @record.id %>/edit" method="POST"><input type="submit" value="Edit" class="button"></form>
-<form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete" class="button"></form>
+<form action="/records/<%= @record.id %>/edit" method="POST"><input type="submit" value="Edit Record" class="button"></form>
+<form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete Record" class="button"></form>

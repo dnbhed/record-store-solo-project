@@ -13,8 +13,8 @@
   <% @tracks.each do |track| %>
   <tr>
     <td><a href="/tracks/<%= track.id %>"><%= track.track_title %></a></td>
-    <td><%= track.artist %></td>
-    <td><%= track.genre %></td>
+    <td><a href="/artists/<%= track.artist_id %>"></a><%= track.artist %></td>
+    <td><a href="/genres/<%= track.genre_id %>"></a><%= track.genre %></td>
     <td><%= track.bpm %></td>
     <td><%= track.label %></td>
     <td><%= track.key %></td>

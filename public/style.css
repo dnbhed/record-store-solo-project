@@ -11,7 +11,7 @@ main {
 }
 
 body {
-  background: url('speaker-music-blue2.jpg') center/cover;
+  background: url('speaker-music-blue2.jpg') center center;
   height: auto;
   font-family: Verdana;
   max-width: auto;
@@ -21,17 +21,58 @@ body {
   justify-content: center;
   margin: 0px;
   padding: 0px;
-  color: lightgrey;
+  color: white;
+  background-color: rgb(80,120,150);
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: lightgrey;
+  border: none;
+  color: rgb(80,120,150);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 300px;
+  font-size: 15px;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  background-color: maroon;
+  color: black;
+}
+
+section {
+  background-color: lightgrey;
+  border: none;
+  color: rgb(80,120,150);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 40%;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  display: inline-block;
+}
+
+section:hover {
+  background-color: maroon;
+  color: black;
 }
 
 nav {
   background-color: rgb(80,120,150);
+  background-size: contain;
   list-style-type: none;
   text-align: center;
   padding: 0;
   margin: 0;
-  border-radius: 4px;
 
+  width: 80%;
+  display: inline-block;
+  opacity: 0.8;
 }
 
 nav li {
@@ -39,35 +80,73 @@ nav li {
   font-size: 20px;
   padding: 20px;
   border: 2px;
-  border-radius: 10px;
-  background-color: rgb(141, 66, 92);
+  background-color: darkgrey;
   padding: 5px;
-  color: rgb(55,68,46);
+  color: white;
 
 }
 
-main:link {
+main {
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  display: inline-block;
+}
+
+a:link {
   color: lightyellow;
+  text-decoration: none;
 }
 
 /* visited link */
-body:visited {
-  color: lightgreen;
+a:visited {
+  color: black;
+  text-decoration: none;
 }
 
 /* mouse over link */
-body:hover {
-  color: lightpink;
+a:hover {
+  color: maroon;
+  text-decoration: underline;
 }
 
 /* selected link */
-body:active {
-  color: lightblue;
+a:active {
+  color: black;
+  text-decoration: none;
+}
+
+input[type=text] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+select {
+  width: 40%;
+  height: 25px;
+  padding: 16px 20px;
+  border: 5px;
+  background-color: #f1f1f1;
+}
+
+label {
+  font-size: 20px;
 }
 
 nav li:hover {
   opacity: 0.8;
   background-color: rgb(150, 140, 90);
+  text-decoration: underline;
 }
 
 
@@ -81,9 +160,9 @@ td {
 }
 
 table {
-  width: 1200px;
+  width: auto;
   border: 10px;
   background-color: white;
   color: black;
-  border-radius: 5px;
+  display: inline-block;
 }
