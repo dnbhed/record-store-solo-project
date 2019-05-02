@@ -11,7 +11,7 @@ main {
 }
 
 body {
-  background: url('speaker-music-blue2.jpg') center center;
+  background: url('speaker-music-blue2.jpg') no-repeat center center fixed;
   height: auto;
   font-family: Verdana;
   max-width: auto;
