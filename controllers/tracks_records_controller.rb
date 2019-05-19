@@ -31,7 +31,7 @@ get '/tracks_records/:id' do
   erb(:"tracks_records/show")
 end
 
-get '/tracks_records/:id/edit' do
+post '/tracks_records/:id/edit' do
   @track_record = TrackRecord.find(params['id'])
   @records = Record.all()
   @tracks = Track.all()

@@ -29,7 +29,7 @@ get '/tracks/:id' do
   erb(:"tracks/show")
 end
 
-get '/tracks/:id/edit' do
+post '/tracks/:id/edit' do
   @artists = Artist.all()
   @track = Track.find(params['id'])
   @genres = Genre.all()
