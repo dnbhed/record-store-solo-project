@@ -1,7 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('artist.rb')
 require_relative('track.rb')
-require('pry-byebug')
 
 class Record
 

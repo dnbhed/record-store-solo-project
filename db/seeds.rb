@@ -4,8 +4,6 @@ require_relative('../models/genre')
 require_relative('../models/track_record')
 require_relative('../models/track')
 
-require('pry-byebug')
-
 TrackRecord.delete_all()
 Track.delete_all()
 Genre.delete_all()
@@ -99,6 +97,3 @@ track_record2 = TrackRecord.new({
   })
 track_record1.save()
 track_record2.save()
-
-binding.pry()
-nil
