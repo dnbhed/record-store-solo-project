@@ -16,7 +16,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler
+  mustermann
+  rack
+  rack-protection
   sinatra
+  tilt
 
 BUNDLED WITH
    2.0.1
