@@ -11,7 +11,7 @@ main {
 }
 
 body {
-  background: url('speaker-music-blue2.jpg') no-repeat center center fixed;
+  background: beige;
   height: auto;
   font-family: Verdana;
   max-width: auto;
@@ -38,7 +38,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-  background-color: maroon;
+  background-color: lightgray;
   color: black;
 }
 
@@ -58,7 +58,7 @@ section {
 }
 
 section:hover {
-  background-color: maroon;
+  background-color: lightgray;
   color: black;
 }
 
@@ -95,7 +95,7 @@ main {
 }
 
 a:link {
-  color: lightyellow;
+  color: black;
   text-decoration: none;
 }
 
@@ -107,8 +107,8 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: maroon;
-  text-decoration: underline;
+  color: black;
+  text-decoration: none;
 }
 
 /* selected link */
