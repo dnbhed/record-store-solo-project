@@ -39,6 +39,15 @@ class Record
     return results.map { |track| Track.new(track)  }
   end
 
+  def number_of_tracks()
+    sql = "SELECT * FROM tracks
+    INNER JOIN tracks_records tr ON tr.track_id = tracks.id
+    WHERE tr.record_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.size
+  end
+
   def update()
     sql = "UPDATE records
     SET

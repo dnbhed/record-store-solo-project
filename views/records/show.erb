@@ -37,6 +37,8 @@
     <% end %>
   </table>
 
-
+<form action="/tracks_records/new" method="post" class="save">
+  <input type="submit" value="Add New Track to Record" class="button"/>
+</form>
 <form action="/records/<%= @record.id %>/edit" method="POST"><input type="submit" value="Edit Record" class="button"></form>
 <form action="/records/<%= @record.id %>/delete" method="POST"><input type="submit" value="Delete Record" class="button"></form>
