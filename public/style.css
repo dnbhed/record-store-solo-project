@@ -194,6 +194,10 @@ form {
   margin: 0 auto;
 }
 
+form.save{
+  width: 100%;
+}
+
 label, input {
   display: inline-block;
 }
