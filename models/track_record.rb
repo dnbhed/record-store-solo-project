@@ -81,10 +81,6 @@ class TrackRecord
     return results.map { |track_record| TrackRecord.new(track_record)  }
   end
 
-
-
-
-
   def self.delete_all()
     sql = "DELETE FROM tracks_records;"
     SqlRunner.run(sql)

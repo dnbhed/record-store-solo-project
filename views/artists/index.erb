@@ -2,12 +2,12 @@
 
 <main id="artist-list">
     <% @artists.each do |artist|  %>
-      <section class="artist">
-        <h3><a href="/artists/<%= artist.id %>"><%= artist.name %></a></h3>
-
-
-      </section>
-
+      
+      <a href="/artists/<%= artist.id %>">
+        <section class="artist">
+          <h3><%= artist.name %></h3>
+        </section>
+      </a>
     <% end %>
 
 <form action="/artists/new" method="post">
