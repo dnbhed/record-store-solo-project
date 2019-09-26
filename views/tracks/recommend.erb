@@ -1,0 +1,38 @@
+<h1><%= @track.track_title.upcase %></h1>
+
+
+<main id="artist-search">
+<h3>Track Recommendations by BPM:</h3>
+
+  
+  <br>
+    <table class="many">
+      <tr>
+        <th>Track Title</th>
+        <th>Genre</th>
+        <th>BPM</th>
+        <th>Label</th>
+        <th>Key</th>
+      </tr>
+
+      <% @bpm_recommendation.each do |track| %>
+      <tr>
+        <td><a href="/tracks/<%= track.id %>"><%= track.track_title %></a></td>
+        <td><a href="/genres/<%= track.genre_id %>"><%= track.genre %></td>
+        <td><%= track.bpm %></td>
+        <td><%= track.label %></td>
+        <td><%= track.key %></td>
+      </tr>
+
+      <% end %>
+    </table>
+<br>
+
+<br>
+
+
+
+<br>
+<br>
+ 
+</main>

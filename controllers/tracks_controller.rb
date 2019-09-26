@@ -29,6 +29,13 @@ get '/tracks/:id' do
   erb(:"tracks/show")
 end
 
+get '/tracks/:id/recommend' do
+  @artists = Artist.all()
+  @track = Track.find(params['id'])
+  @bpm_recommendation = Track.bpm_recommend()
+  erb(:"tracks/recommend")
+end
+
 post '/tracks/:id/edit' do
   @artists = Artist.all()
   @track = Track.find(params['id'])

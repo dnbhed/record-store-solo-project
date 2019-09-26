@@ -87,6 +87,13 @@ class Track
     return artist.name
   end
 
+  def self.bpm_recommend()
+    sql = "SELECT * FROM tracks WHERE genre_id = $1;"
+    values = [@genre_id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |track| Track.new(track)}
+  end
+
   def self.find(id)
     sql = "SELECT tracks.* FROM tracks WHERE id = $1;"
     values = [id]
