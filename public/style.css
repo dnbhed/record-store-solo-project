@@ -192,6 +192,13 @@ select {
 form {
   width: 40%;
   margin: 0 auto;
+  align-content: left;
+}
+
+.saver {
+  text-align: center;
+  display: grid;
+  width: 100%;
 }
 
 form.save{

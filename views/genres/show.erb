@@ -23,7 +23,10 @@
     <% end %>
   </table>
 
-  <form action="/genres/<%= @genre.id %>/edit" method="POST"><input type="submit" value="Edit Genre" class="button"></form>
-
-  <form action="/genres/<%= @genre.id %>/delete" method="POST"><input type="submit" value="Delete Genre" class="button"></form>
+  
+  
 </main>
+<div class="saver">
+      <form action="/genres/<%= @genre.id %>/edit" method="POST"><input type="submit" value="Edit Genre" class="button"></form>
+      <form action="/genres/<%= @genre.id %>/delete" method="POST"><input type="submit" value="Delete Genre" class="button"></form>
+  </div>
